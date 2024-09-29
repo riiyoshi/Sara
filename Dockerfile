@@ -1,5 +1,5 @@
 FROM python:3.12
-WORKDIR /Sara
+WORKDIR /bot
 
 # 更新・日本語化
 RUN apt-get update && apt-get -y install locales && apt-get -y upgrade && \
@@ -13,7 +13,7 @@ ENV TERM xterm
 # pip install
 COPY requirements.txt /bot/
 RUN pip install -r requirements.txt
-COPY . /Sara
+COPY . /bot
 
 # ポート開放 (uvicornで指定したポート)
 EXPOSE 8080
